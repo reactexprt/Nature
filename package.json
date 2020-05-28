@@ -1,0 +1,22 @@
+{
+  "name": "nature",
+  "version": "1.0.0",
+  "description": "creating website with sass",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reactexprt/Nature.git"
+  },
+  "author": "Gaurav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reactexprt/Nature/issues"
+  },
+  "homepage": "https://github.com/reactexprt/Nature#readme",
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

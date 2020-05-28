@@ -1,0 +1,183 @@
+/* Universal Selector will select each and every element on the page 
+and then apply these declarations */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* Change the box model so that the borders and the paddings are no 
+    longer added to the total width or the total height */
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  /* font-family should always be used in body.
+    this font-family will inherited by all the child elements */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* the link imported in index.html Lato 100,200,400,700,900 */
+  /* font-size: 16px; */
+  /* means it is 1.7 times bigger than the default line-height */
+  line-height: 1.7;
+  color: #777;
+  /* text color */
+  padding: 2rem;
+  /* padding around entire body */
+  box-sizing: border-box; }
+
+/* CREATE CSS ANIMATION USING @keyframes AND THE animation PROPERTY 
+ x goes left to right and y goes top to bottom
+ +ve goes left to right and top to bottom, whereas, -ve goes from right to left and bottom to top */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    /* Not visible */
+    transform: translateX(-10rem);
+    /* Goes from left to right, means, text position moved to left from its real position */ }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    /* Visible */
+    transform: translate(0);
+    /* Move back to its real position 0 */ } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    /* Not visible */
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    /* Visible */
+    transform: translate(0); } }
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    /* Not visible */
+    transform: translateY(3rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    /* Visible */
+    transform: translate(0); } }
+
+/* Parent element for heading-primary-main && heading-primary-sub */
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /* The shaking part behind the element is hidden now. */
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    /* Will use entire 100% width of that block. Will only diplay text in one line for that --> .span. */
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
+
+/* link is the state of button selector. sudo class are a special state of a selector, used in special condition */
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  /* Padding for top-bottom and left-right. 4 values will work respectively top-right-bottom-left */
+  display: inline-block;
+  /* inline-block will help to get text's it's own space. */
+  border-radius: 10rem;
+  /* Will shape the button */
+  transition: all 0.2s;
+  /* same as animation but now we dont need to create @keyframes, we can just use transition */
+  position: relative;
+  font-size: 1.6rem; }
+
+.btn:hover {
+  /* Pseudo class:  when we hover the button/ hover state */
+  transform: translateY(-3px);
+  /* offset in the x direction, y direction(shadow will be 10px down), blurr 20px, color with tranperency value .2(opacity 20%) of the shadow */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    /* scale will simply increase the element */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+    /* Invisible */ }
+
+.btn:active {
+  /* when we click the button/ active state */
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn--white {
+  background-color: #fff;
+  color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
+
+.btn::after {
+  content: "";
+  /* We have to specift the content property, otherwise it will not work, no matter if left it empty just specify it */
+  display: inline-block;
+  height: 100%;
+  /* height and width of the button */
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* defines the position of the elements if they are top of one another */
+  transition: all 0.4s; }
+
+.btn--animated {
+  animation: moveInButton 0.5s case-out 0.75s;
+  /* With Delay */
+  animation-fill-mode: backwards;
+  /* automatically apply the styles of the 0% before the animation starts */ }
+
+.header {
+  height: 95vh;
+  /* Almost 95%, vh - view-port height */
+  /* linear-gradient - going from light green to dark green.  opacity of 0.8 red,green,blue,aopacity(rgba) */
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /* top, bottom, center */
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* vh - view-port height */
+  /* .logo:hover {
+            animation: moveInRight 1s ease-out;
+        } */
+  /* Parent of heading-primary */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem;
+    /* Controls the height and width will automatically control by the browser */ }
+  .header__text-box {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    /* Make sure text is at the center, Important property to center the element. -50% shifted of the elements height to the top 
+             And, even we could use transform to move text's from anywhere to its real location, move around with transform rotate, translate*/
+    transform: translate(-50%, -50%);
+    text-align: center; }

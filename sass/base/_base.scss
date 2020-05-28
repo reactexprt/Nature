@@ -1,0 +1,20 @@
+/* Universal Selector will select each and every element on the page 
+and then apply these declarations */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* Change the box model so that the borders and the paddings are no 
+    longer added to the total width or the total height */
+  box-sizing: inherit;
+}
+
+html {
+  //- If you want to give the html font-size 10px, then for that we can divide 10 by 16 which is .625, and then *100 --> 62.5%
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}

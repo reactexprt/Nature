@@ -1,0 +1,61 @@
+/* link is the state of button selector. sudo class are a special state of a selector, used in special condition */
+.btn {
+    &:link,
+    &:visited {
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1.5rem 4rem; /* Padding for top-bottom and left-right. 4 values will work respectively top-right-bottom-left */
+      display: inline-block; /* inline-block will help to get text's it's own space. */
+      border-radius: 10rem; /* Will shape the button */
+  
+      transition: all 0.2s; /* same as animation but now we dont need to create @keyframes, we can just use transition */
+      position: relative;
+      font-size: 1.6rem;
+    }
+  
+    &:hover {
+      /* Pseudo class:  when we hover the button/ hover state */
+      transform: translateY(-3px);
+      /* offset in the x direction, y direction(shadow will be 10px down), blurr 20px, color with tranperency value .2(opacity 20%) of the shadow */
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  
+      &::after {
+          /* scale will simply increase the element */
+          transform: scaleX(1.4) scaleY(1.6);
+          opacity: 0; /* Invisible */
+        }
+    }
+  
+    &:active {
+      /* when we click the button/ active state */
+      transform: translateY(-1px);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+  
+    &--white {
+      background-color: $color-white;
+      color: $color-grey-dark;
+  
+      &::after {
+          background-color: $color-white;
+        }
+    }
+  
+    &::after {
+      content: ""; /* We have to specift the content property, otherwise it will not work, no matter if left it empty just specify it */
+      display: inline-block;
+      height: 100%; /* height and width of the button */
+      width: 100%;
+      border-radius: 10rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1; /* defines the position of the elements if they are top of one another */
+      transition: all 0.4s;
+    }
+  
+    &--animated {
+      animation: moveInButton 0.5s case-out 0.75s; /* With Delay */
+      animation-fill-mode: backwards; /* automatically apply the styles of the 0% before the animation starts */
+    }
+  }

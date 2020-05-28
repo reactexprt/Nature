@@ -1,0 +1,95 @@
+npm init to install package.json
+npm install node-sass --save-dev
+npm install -g live-server
+scripts: {
+    "watch:sass": "node-sass sass/main.scss css/style.css -w"
+}
+
+$keyframes for animation goes 0% with opacity 0(invisible) to 100% with opacity 1(visible) and use transform for animation
+$variable
+@mixin then use @include to include the mixin
+@function
+@extend then use %name-of-the-extend
+
+================================================================
+    Three Pillars to write good css and bulid good website
+================================================================
+
+1. Responsive Design -:
+
+- Fluid Layout
+- Media queries
+- Responsive images
+- Correct units
+- Desktop-first vs mobile-first
+
+
+2. Maintainable and scalable code -:
+
+- Clean
+- East to understand
+- Growth
+- Reusable
+- How to organise Files
+- How to name classes
+- How to structure HTML
+
+
+3. Web performance -:
+
+- Less HTTP requests
+- Less code
+- Compress Code
+- Use a CSS preprocessor like SASS
+- Less Images
+- Compress images
+
+==========================================================
+    What Happens To CSS When we load up a webpage
+==========================================================
+
+Load HTML  -->  Parse HTML  -->  DOM
+
+Parse HTML  -->  Load CSS  -->  Parse CSS ( Resolve conflicting CSS declarations (cascade) && Process final CSS values )  -->  CSS Object Modal(CSSOM)
+
+DOM && CSSOM  -->  Render Tree  -->  Website rendering the visual formatting modals  -->  Final rendered website
+
+==========================================================
+    How CSS is parsed: The Cascade and Specificity
+==========================================================
+
+Process of combining different style sheets and resolving conflicts between different css rules and declarations, when more
+than one rule applies to a certain element.
+Cascading Style Sheets
+
+Importance  >  Specificity  >  Source order (The last declaration in the code will override all other declarations and will be applied.)
+-!important    -Inline styles
+               -IDs
+               -Classes, pseudo-classes, attribute
+               -Elements, pseudo-elements             
+
+- CSS declarations marked with !important have the highest priority
+- But, only use !important as a last resource. It’s better to use correct specificities — more maintainable code
+- Inline styles will always have priority over styles in external stylesheets
+- A selector that contains 1 ID is more specific than one with 1000 classes
+- A selector that contains 1 class is more specific than one with 1000 elements
+- The universal selector * has no specificity value (0, 0, 0, 0)
+- Rely more on specificity than on the order of selectors
+- But, rely on order when using 3rd-party stylesheets — always put your author stylesheet last.
+
+===========================================================
+    How CSS is parsed: Value Processing
+===========================================================
+
+1. Declared Value (author declaration)
+2. Cascaded Value (after the cascade)
+3. Specified Value (defauting, if there is no cascaded value)
+4. Computed Value (converting relative values to absolute)
+5. Used Value (final calculations, based on layout)
+6. Actual Value (browser and device restrictions)
+
+
+- If you want to give the html font-size 10px, then for that we can divide 10 by 16 which is .625, and then *100 --> 62.5%
+So, font-size: 62.5% for html
+
+For grid use 1140px 114 rem width!

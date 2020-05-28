@@ -1,0 +1,53 @@
+/* CREATE CSS ANIMATION USING @keyframes AND THE animation PROPERTY 
+ x goes left to right and y goes top to bottom
+ +ve goes left to right and top to bottom, whereas, -ve goes from right to left and bottom to top */
+
+ @keyframes moveInLeft {
+    0% {
+      opacity: 0; /* Not visible */
+      transform: translateX(
+        -10rem
+      ); /* Goes from left to right, means, text position moved to left from its real position */
+    }
+  
+    80% {
+      transform: translateX(1rem);
+    }
+  
+    100% {
+      opacity: 1; /* Visible */
+      transform: translate(0); /* Move back to its real position 0 */
+    }
+  }
+  
+  @keyframes moveInRight {
+    0% {
+      opacity: 0; /* Not visible */
+      transform: translateX(10rem);
+    }
+  
+    80% {
+      transform: translateX(-1rem);
+    }
+  
+    100% {
+      opacity: 1; /* Visible */
+      transform: translate(0);
+    }
+  }
+  
+  @keyframes moveInButton {
+    0% {
+      opacity: 0; /* Not visible */
+      transform: translateY(3rem);
+    }
+  
+    80% {
+      transform: translateX(-1rem);
+    }
+  
+    100% {
+      opacity: 1; /* Visible */
+      transform: translate(0);
+    }
+  }

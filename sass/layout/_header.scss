@@ -1,0 +1,40 @@
+// Parent of logo-box
+.header {
+    height: 95vh; /* Almost 95%, vh - view-port height */
+    /* linear-gradient - going from light green to dark green.  opacity of 0.8 red,green,blue,aopacity(rgba) */
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
+      url(../img/hero.jpg);
+    // whatever the width of the view-port/element so it fits the element inside of the box
+    background-size: cover;
+    /* top, bottom, center */
+    background-position: top;
+    position: relative;
+    // x --->
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* vh - view-port height */
+  
+    &__logo-box {
+      // The easiest way to center anything with the transform, top and left properties
+      position: absolute;
+      top: 4rem;
+      left: 4rem;
+    }
+  
+    &__logo {
+      height: 3.5rem; /* Controls the height and width will automatically control by the browser */
+    }
+  
+    /* .logo:hover {
+            animation: moveInRight 1s ease-out;
+        } */
+  
+    /* Parent of heading-primary */
+    &__text-box {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      /* Make sure text is at the center, Important property to center the element. -50% shifted of the elements height to the top 
+             And, even we could use transform to move text's from anywhere to its real location, move around with transform rotate, translate*/
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  }
