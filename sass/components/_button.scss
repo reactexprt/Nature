@@ -1,5 +1,6 @@
 /* link is the state of button selector. sudo class are a special state of a selector, used in special condition */
 .btn {
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -11,6 +12,10 @@
     transition: all 0.2s; /* same as animation but now we dont need to create @keyframes, we can just use transition */
     position: relative;
     font-size: $default-font-size;
+
+    // Change for the <button> element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -26,7 +31,9 @@
     }
   }
 
-  &:active {
+  &:active,  // active means when the button get clicked
+  &:focus {
+    outline: none;  // so that there would be no outline when get clicked
     /* when we click the button/ active state */
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
