@@ -10,7 +10,8 @@
     background-position: top;
     position: relative;
     // x --->
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* vh - view-port height */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* vh - view-port height */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   
     &__logo-box {
       // The easiest way to center anything with the transform, top and left properties

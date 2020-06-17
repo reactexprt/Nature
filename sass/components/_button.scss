@@ -41,8 +41,17 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   &::after {
-    content: ""; /* We have to specift the content property, otherwise it will not work, no matter if left it empty just specify it */
+    content: ""; /* We have to specify the content property, otherwise it will not work, no matter if left it empty just specify it */
     display: inline-block;
     height: 100%; /* height and width of the button */
     width: 100%;
