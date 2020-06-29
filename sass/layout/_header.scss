@@ -1,6 +1,6 @@
 // Parent of logo-box
 .header {
-  height: 95vh; /* Almost 95%, vh - view-port height */
+  height: 85vh; /* Almost 95%, vh - view-port height */
   /* linear-gradient - going from light green to dark green.  opacity of 0.8 red,green,blue,aopacity(rgba) */
   background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)),
     url(../img/hero-small.jpg);
@@ -9,12 +9,18 @@
   /* top, bottom, center */
   background-position: top;
   position: relative;
-  // x --->
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* vh - view-port height */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    // x --->
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* vh - view-port height */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
 
   // if the resolution is higher select this image
-  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+  @media (min-resolution: 192dpi) and (min-width: 37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+    (min-width: 125em) {
     background-image: linear-gradient(
         to right bottom,
         rgba($color-secondary-light, 0.8),
